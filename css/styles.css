@@ -105,10 +105,15 @@ h3 { font-size: clamp(1.3rem, 3vw, 1.7rem); }
     url("../assets/bg/her-his-larkspur.webp") center / cover no-repeat var(--ivory);
 }
 .section--art-storyintro {
+  padding: 7.5rem 0;                 /* ~20% taller than the standard section */
   background:
-    linear-gradient(rgba(250,247,243,.70), rgba(250,247,243,.70)),
+    linear-gradient(rgba(250,247,243,.63), rgba(250,247,243,.63)),
     url("../assets/photos/couple-story.webp") center / cover no-repeat var(--ivory);
 }
+/* Bolder text so it holds up against the lighter veil */
+.section--art-storyintro .eyebrow,
+.section--art-storyintro h1,
+.section--art-storyintro .lede { font-weight: 700; }
 .center { text-align: center; }
 
 /* A framed photo used as a wide banner within a section */
