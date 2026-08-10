@@ -99,7 +99,20 @@ h3 { font-size: clamp(1.3rem, 3vw, 1.7rem); }
     linear-gradient(rgba(242,235,227,.55), rgba(242,235,227,.55)),
     url("../assets/bg/ceremony-reception.webp") center / cover no-repeat var(--cream);
 }
+.section--art-herstory {
+  background:
+    linear-gradient(rgba(250,247,243,.62), rgba(250,247,243,.62)),
+    url("../assets/bg/her-his-larkspur.webp") center / cover no-repeat var(--ivory);
+}
 .center { text-align: center; }
+
+/* A framed photo used as a wide banner within a section */
+.banner-photo {
+  width: min(94%, 720px);
+  margin: 2.4rem auto 0;
+  border: 6px solid var(--white);
+  box-shadow: 0 10px 30px rgba(76,43,83,.18);
+}
 .lede { max-width: 640px; margin: 0 auto; color: var(--muted); }
 
 /* Decorative divider */
@@ -163,12 +176,18 @@ h3 { font-size: clamp(1.3rem, 3vw, 1.7rem); }
   position: relative;
   padding: 4rem 0;
   background:
-    linear-gradient(rgba(250,247,243,.55), rgba(250,247,243,.78)),
-    radial-gradient(circle at 28% 22%, var(--lilac), transparent 45%),
-    radial-gradient(circle at 76% 80%, #c3d0b6, transparent 45%),
-    var(--ivory);
+    linear-gradient(rgba(250,247,243,.55), rgba(250,247,243,.70)),
+    url("../assets/bg/hero-anemones.webp") center top / cover no-repeat var(--ivory);
 }
-.hero__inner { max-width: 760px; padding: 0 1.5rem; }
+/* Keep the hero text + photo above the watercolor background */
+.hero__inner { max-width: 760px; padding: 0 1.5rem; position: relative; z-index: 1; }
+.hero__photo {
+  width: min(86%, 400px);
+  margin: 1.5rem auto .4rem;
+  border: 6px solid var(--white);
+  border-radius: 6px;
+  box-shadow: 0 12px 32px rgba(76,43,83,.28);
+}
 .hero__names {
   font-family: var(--script);
   font-weight: 400;
