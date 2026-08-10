@@ -8,7 +8,7 @@
    Format: "YYYY-MM-DDTHH:MM:SS" (24-hour clock, local time).
    This one placeholder controls the countdown on the home page.
    ------------------------------------------------------------------------- */
-const WEDDING_DATE = "2027-06-12T16:00:00";
+const WEDDING_DATE = "2026-11-08T16:00:00";
 
 /* ---- Countdown ---------------------------------------------------------- */
 function initCountdown() {
