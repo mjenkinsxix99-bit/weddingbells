@@ -104,6 +104,11 @@ h3 { font-size: clamp(1.3rem, 3vw, 1.7rem); }
     linear-gradient(rgba(250,247,243,.62), rgba(250,247,243,.62)),
     url("../assets/bg/her-his-larkspur.webp") center / cover no-repeat var(--ivory);
 }
+.section--art-storyintro {
+  background:
+    linear-gradient(rgba(250,247,243,.70), rgba(250,247,243,.70)),
+    url("../assets/photos/couple-story.webp") center / cover no-repeat var(--ivory);
+}
 .center { text-align: center; }
 
 /* A framed photo used as a wide banner within a section */
