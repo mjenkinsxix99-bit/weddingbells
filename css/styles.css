@@ -182,7 +182,7 @@ h3 { font-size: clamp(1.3rem, 3vw, 1.7rem); }
 /* Keep the hero text + photo above the watercolor background */
 .hero__inner { max-width: 760px; padding: 0 1.5rem; position: relative; z-index: 1; }
 .hero__photo {
-  width: min(86%, 400px);
+  width: min(92%, 500px);
   margin: 1.5rem auto .4rem;
   border: 6px solid var(--white);
   border-radius: 6px;
