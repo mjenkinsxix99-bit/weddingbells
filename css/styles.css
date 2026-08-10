@@ -122,6 +122,10 @@ h3 { font-size: clamp(1.3rem, 3vw, 1.7rem); }
     linear-gradient(rgba(250,247,243,.60), rgba(250,247,243,.60)),
     url("../assets/bg/from-couple-lily.webp") center / cover no-repeat var(--ivory);
 }
+/* Welcome section: plum lettering & text on cream */
+.section--welcome .eyebrow,
+.section--welcome h2,
+.section--welcome .lede { color: var(--plum); }
 .center { text-align: center; }
 
 /* Body copy block (From the Couple) */
