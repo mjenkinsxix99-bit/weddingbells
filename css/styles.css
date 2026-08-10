@@ -117,7 +117,36 @@ h3 { font-size: clamp(1.3rem, 3vw, 1.7rem); }
 }
 /* Intro paragraph: much darker for legibility */
 .section--art-storyintro .lede { color: #241f28; }
+.section--art-fromcouple {
+  background:
+    linear-gradient(rgba(250,247,243,.60), rgba(250,247,243,.60)),
+    url("../assets/bg/from-couple-lily.webp") center / cover no-repeat var(--ivory);
+}
 .center { text-align: center; }
+
+/* Body copy block (From the Couple) */
+.prose { max-width: 720px; margin: 2.4rem auto 0; text-align: left; }
+.prose p { margin: 0 0 1.3rem; color: var(--charcoal); }
+.prose .signoff {
+  font-family: var(--script); font-size: 2.6rem; color: var(--plum);
+  text-align: center; margin-top: 1.4rem;
+}
+
+/* Two side-by-side couple photos (stays two-up on mobile) */
+.duo-photos {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem;
+  margin: 2rem auto 2.4rem; max-width: 620px;
+}
+.duo-photos figure { margin: 0; text-align: center; }
+.duo-photos img {
+  width: 100%; aspect-ratio: 4 / 5; object-fit: cover;
+  border: 5px solid var(--white); box-shadow: 0 8px 24px rgba(76,43,83,.18);
+  background: var(--cream);
+}
+.duo-photos figcaption {
+  margin-top: .7rem; font-family: var(--display);
+  font-size: 1.1rem; color: var(--plum);
+}
 
 /* A framed photo used as a wide banner within a section */
 .banner-photo {
