@@ -86,6 +86,19 @@ h3 { font-size: clamp(1.3rem, 3vw, 1.7rem); }
 .section--plum { background: var(--plum-dark); color: #efe7ee; }
 .section--plum h2, .section--plum h3 { color: #fff; }
 .section--plum .eyebrow { color: var(--lilac); }
+
+/* Watercolor artwork backgrounds. The cream veil keeps text readable while
+   the florals show through — raise/lower the alpha to hide/reveal more art. */
+.section--art-story {
+  background:
+    linear-gradient(rgba(242,235,227,.66), rgba(242,235,227,.66)),
+    url("../assets/bg/how-we-got-here.webp") center / cover no-repeat var(--cream);
+}
+.section--art-ceremony {
+  background:
+    linear-gradient(rgba(242,235,227,.55), rgba(242,235,227,.55)),
+    url("../assets/bg/ceremony-reception.webp") center / cover no-repeat var(--cream);
+}
 .center { text-align: center; }
 .lede { max-width: 640px; margin: 0 auto; color: var(--muted); }
 
