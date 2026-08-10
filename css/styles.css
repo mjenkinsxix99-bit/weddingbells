@@ -333,7 +333,7 @@ h3 { font-size: clamp(1.3rem, 3vw, 1.7rem); }
   margin-top: 3rem; text-align: left;
 }
 .dual__col {
-  background: var(--white);
+  background: var(--cream);
   border-top: 3px solid var(--plum);
   padding: 2.5rem 2.2rem;
   box-shadow: 0 6px 24px rgba(76,43,83,.07);
