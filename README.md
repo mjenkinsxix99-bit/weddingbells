@@ -4,9 +4,10 @@ A simple, elegant wedding website built with plain HTML, CSS, and JavaScript.
 No frameworks, no build step — just open it and it works.
 
 **The day:** Sunday, November 8, 2026
+**The place:** The Springs in Lake Conroe, Texas
 **The colors:** Plum, with sage green, gold, and soft lilac
 
-> Some details (venue, times, hotels, photos, and Micah's side of the story) are
+> Some details (ceremony time, hotels, photos, and Micah's side of the story) are
 > still placeholders, clearly marked so we can fill them in together.
 
 ## 📄 The pages
@@ -23,7 +24,7 @@ Double-click `index.html` and it opens in your web browser. That's it.
 
 ## ✏️ What still needs the real details
 
-- **Venue & times** — ceremony/reception location and start times (`index.html`).
+- **Ceremony time** — start time at The Springs in Lake Conroe (`index.html`).
 - **Micah's side** — "His Story" on `story.html` is a placeholder for him to write.
 - **Photos** — childhood pics, prom, the proposal, and the pets. Drop images into
   the `assets/` folder and tell me the file names; I'll place them in the timeline
