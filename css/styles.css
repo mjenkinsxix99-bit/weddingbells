@@ -239,13 +239,13 @@ h3 { font-size: clamp(1.3rem, 3vw, 1.7rem); }
 }
 .hero__amp { color: var(--gold); }
 .hero__tag {
-  text-transform: uppercase; letter-spacing: .3em;
-  font-size: .8rem; color: var(--muted);
+  text-transform: uppercase; letter-spacing: .22em;
+  font-size: 1rem; color: #000;
 }
 .hero__date {
   font-family: var(--display);
-  font-size: clamp(1.2rem, 3vw, 1.6rem);
-  color: var(--plum);
+  font-size: clamp(1.6rem, 4.2vw, 2.2rem);
+  color: #000;
   margin-top: 1rem;
 }
 
@@ -259,13 +259,13 @@ h3 { font-size: clamp(1.3rem, 3vw, 1.7rem); }
 .countdown__unit { text-align: center; min-width: 64px; }
 .countdown__num {
   font-family: var(--display);
-  font-size: clamp(2rem, 6vw, 3.2rem);
-  color: var(--plum);
+  font-size: clamp(2.4rem, 6.5vw, 3.7rem);
+  color: #000;
   line-height: 1;
 }
 .countdown__label {
   text-transform: uppercase; letter-spacing: .18em;
-  font-size: .68rem; color: var(--muted); margin-top: .4rem;
+  font-size: .76rem; color: #000; margin-top: .4rem;
 }
 
 /* =========================================================================
