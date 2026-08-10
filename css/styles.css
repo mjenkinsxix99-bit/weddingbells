@@ -17,8 +17,8 @@
   --sage-dark:  #6a7a5c;
   --gold:       #b08d57;   /* fine detail lines, flourishes */
 
-  --charcoal:   #3a3339;   /* body text (a warm plum-charcoal) */
-  --muted:      #877e86;   /* secondary text */
+  --charcoal:   #000000;   /* body text — solid black for mobile legibility */
+  --muted:      #000000;   /* secondary text — solid black (was soft gray) */
   --white:      #ffffff;
 
   /* --- Type --- */
@@ -75,7 +75,7 @@ h3 { font-size: clamp(1.3rem, 3vw, 1.7rem); }
   letter-spacing: .32em;
   font-size: .72rem;
   font-weight: 400;
-  color: var(--gold);
+  color: #000;
   margin: 0 0 1rem;
 }
 
@@ -317,7 +317,7 @@ h3 { font-size: clamp(1.3rem, 3vw, 1.7rem); }
 }
 .tl:nth-child(odd)::after { right: -6.5px; }
 .tl:nth-child(even)::after { left: -6.5px; }
-.tl__year { font-family: var(--display); color: var(--gold); font-size: 1.4rem; }
+.tl__year { font-family: var(--display); color: #000; font-size: 1.4rem; }
 .tl h3 { margin: .2rem 0; }
 .tl p { color: var(--muted); margin: .2rem 0 0; }
 .tl__photo {
@@ -370,9 +370,9 @@ h3 { font-size: clamp(1.3rem, 3vw, 1.7rem); }
 
 .memoriam {
   margin-top: 2.5rem; text-align: center;
-  font-family: var(--display); font-style: italic; color: var(--muted);
+  font-family: var(--display); font-style: italic; color: #efe7ee;
 }
-.memoriam strong { color: var(--plum); font-style: normal; font-weight: 500; }
+.memoriam strong { color: #fff; font-style: normal; font-weight: 500; }
 
 /* =========================================================================
    From the Parents (quote cards)
