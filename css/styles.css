@@ -110,10 +110,6 @@ h3 { font-size: clamp(1.3rem, 3vw, 1.7rem); }
     linear-gradient(rgba(250,247,243,.63), rgba(250,247,243,.63)),
     url("../assets/photos/couple-story.webp") center / cover no-repeat var(--ivory);
 }
-/* Bolder text so it holds up against the lighter veil */
-.section--art-storyintro .eyebrow,
-.section--art-storyintro h1,
-.section--art-storyintro .lede { font-weight: 700; }
 /* "Our Story" label: a bit bigger and darker */
 .section--art-storyintro .eyebrow {
   color: var(--plum-dark);
