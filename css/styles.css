@@ -114,6 +114,13 @@ h3 { font-size: clamp(1.3rem, 3vw, 1.7rem); }
 .section--art-storyintro .eyebrow,
 .section--art-storyintro h1,
 .section--art-storyintro .lede { font-weight: 700; }
+/* "Our Story" label: a bit bigger and darker */
+.section--art-storyintro .eyebrow {
+  color: var(--plum-dark);
+  font-size: .86rem;
+}
+/* Intro paragraph: much darker for legibility */
+.section--art-storyintro .lede { color: #241f28; }
 .center { text-align: center; }
 
 /* A framed photo used as a wide banner within a section */
