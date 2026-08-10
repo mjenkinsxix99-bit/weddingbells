@@ -410,6 +410,23 @@ h3 { font-size: clamp(1.3rem, 3vw, 1.7rem); }
   font-size: .72rem; color: var(--plum); font-weight: 400;
 }
 
+/* From the Parents — prose style (no boxes) */
+.parents-sub {
+  font-family: var(--display); font-style: italic;
+  font-size: 1.2rem; color: #000; margin: .1rem 0 0;
+}
+.parent-notes { max-width: 680px; margin: 2.6rem auto 0; }
+.parent-note { margin-bottom: 2.4rem; }
+.parent-note:last-child { margin-bottom: 0; }
+.parent-note__name {
+  font-family: var(--script); font-size: 2.3rem; color: var(--plum); line-height: 1.1;
+}
+.parent-note__rel {
+  text-transform: uppercase; letter-spacing: .2em;
+  font-size: .68rem; color: #000; margin-top: .3rem;
+}
+.parent-note__msg { margin-top: .8rem; color: #000; }
+
 /* =========================================================================
    Photo gallery
    ========================================================================= */
