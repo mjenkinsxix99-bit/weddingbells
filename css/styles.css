@@ -108,7 +108,7 @@ h3 { font-size: clamp(1.3rem, 3vw, 1.7rem); }
   padding: 7.5rem 0;                 /* ~20% taller than the standard section */
   background:
     linear-gradient(rgba(250,247,243,.63), rgba(250,247,243,.63)),
-    url("../assets/photos/couple-story.webp") center / cover no-repeat var(--ivory);
+    url("../assets/photos/couple-30.webp") center / cover no-repeat var(--ivory);
 }
 /* "Our Story" label: a bit bigger and darker */
 .section--art-storyintro .eyebrow {
