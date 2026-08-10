@@ -193,7 +193,7 @@ h3 { font-size: clamp(1.3rem, 3vw, 1.7rem); }
   letter-spacing: .04em;
   color: var(--plum);
 }
-.nav__links { display: flex; gap: 2rem; list-style: none; margin: 0; padding: 0; }
+.nav__links { display: flex; gap: 1.5rem; list-style: none; margin: 0; padding: 0; }
 .nav__links a {
   font-family: var(--body);
   text-transform: uppercase;
@@ -415,7 +415,9 @@ h3 { font-size: clamp(1.3rem, 3vw, 1.7rem); }
   font-family: var(--display); font-style: italic;
   font-size: 1.2rem; color: #000; margin: .1rem 0 0;
 }
-.parent-notes { max-width: 680px; margin: 2.6rem auto 0; }
+.parent-notes { max-width: 680px; margin: 2.6rem auto 0; text-align: left; }
+.parent-note__msg + .parent-note__msg { margin-top: .9rem; }
+.parent-note__sign { font-style: italic; margin-top: .5rem; }
 .parent-note { margin-bottom: 2.4rem; }
 .parent-note:last-child { margin-bottom: 0; }
 .parent-note__name {
