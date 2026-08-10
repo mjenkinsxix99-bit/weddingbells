@@ -288,6 +288,40 @@ h3 { font-size: clamp(1.3rem, 3vw, 1.7rem); }
 .memoriam strong { color: var(--plum); font-style: normal; font-weight: 500; }
 
 /* =========================================================================
+   From the Parents (quote cards)
+   ========================================================================= */
+.parents {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem; margin-top: 3rem; text-align: left;
+}
+.parent-card {
+  background: var(--white);
+  border: 1px solid rgba(109,66,112,.15);
+  border-left: 4px solid var(--lilac);
+  padding: 2.4rem 2.2rem;
+  position: relative;
+}
+.parent-card::before {
+  content: "\201C";               /* opening quotation mark */
+  font-family: var(--display);
+  font-size: 4.5rem; line-height: 1;
+  color: var(--lilac);
+  position: absolute; top: .6rem; left: 1.2rem;
+}
+.parent-card p {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--charcoal);
+  margin: 1.4rem 0 1.2rem;
+  position: relative;
+}
+.parent-card__from {
+  text-transform: uppercase; letter-spacing: .2em;
+  font-size: .72rem; color: var(--plum); font-weight: 400;
+}
+
+/* =========================================================================
    Photo gallery
    ========================================================================= */
 .gallery {
