@@ -22,8 +22,9 @@
   --white:      #ffffff;
 
   /* --- Type --- */
-  --display: "Cormorant Garamond", "Times New Roman", serif;
-  --body:    "Jost", "Helvetica Neue", Arial, sans-serif;
+  --script:  "MonteCarlo", "Segoe Script", cursive;   /* the couple's names */
+  --display: "Forum", "Times New Roman", serif;         /* headings */
+  --body:    "Forum", Georgia, serif;                   /* body copy */
 
   /* --- Spacing rhythm --- */
   --maxw: 1080px;
@@ -38,7 +39,7 @@ body {
   color: var(--charcoal);
   background: var(--ivory);
   line-height: 1.7;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 17px;
 }
 img { max-width: 100%; display: block; }
@@ -147,10 +148,13 @@ h3 { font-size: clamp(1.3rem, 3vw, 1.7rem); }
 }
 .hero__inner { max-width: 760px; padding: 0 1.5rem; }
 .hero__names {
-  font-size: clamp(3rem, 10vw, 6.5rem);
+  font-family: var(--script);
+  font-weight: 400;
+  font-size: clamp(3.8rem, 13vw, 8rem);
+  line-height: 1.1;
   margin: .2rem 0;
 }
-.hero__amp { color: var(--gold); font-style: italic; }
+.hero__amp { color: var(--gold); }
 .hero__tag {
   text-transform: uppercase; letter-spacing: .3em;
   font-size: .8rem; color: var(--muted);
@@ -372,7 +376,7 @@ h3 { font-size: clamp(1.3rem, 3vw, 1.7rem); }
   background: var(--plum-dark); color: #e8ddea;
   text-align: center; padding: 3.5rem 0;
 }
-.footer__names { font-family: var(--display); font-size: 2rem; color: #fff; }
+.footer__names { font-family: var(--script); font-size: 3rem; line-height: 1.2; color: #fff; }
 .footer p { margin: .4rem 0; font-size: .85rem; color: #d3c6d5; }
 .footer .divider { background: rgba(255,255,255,.4); }
 .footer .divider::before { background: var(--plum-dark); color: #fff; }
