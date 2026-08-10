@@ -33,6 +33,16 @@ Double-click `index.html` and it opens in your web browser. That's it.
 - **The new last name** — mentioned in the story; we can feature it whenever you'd
   like to reveal it.
 
+## 🎵 Music
+
+Four tracks in `assets/music/` play softly in the background (fixed at 40%
+volume), looping forever in random order — never the same song twice in a row,
+and never repeating with only one song in between. A floating ♪ button (bottom
+right) lets anyone turn it on or off; the choice is remembered as you move
+between pages. Because browsers block audio until a visitor interacts with the
+page, the music starts on the first tap/click/scroll. To change the songs, swap
+the files in `assets/music/` and update the list at the top of `js/music.js`.
+
 ## 🎨 Changing the look
 
 - **Colors:** all defined once at the top of `css/styles.css` under `--- Palette ---`.

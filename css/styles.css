@@ -379,6 +379,31 @@ h3 { font-size: clamp(1.3rem, 3vw, 1.7rem); }
 .btn--ghost:hover { background: var(--plum); color: var(--white); }
 
 /* =========================================================================
+   Music toggle (floating)
+   ========================================================================= */
+.music-toggle {
+  position: fixed; bottom: 1.2rem; right: 1.2rem; z-index: 100;
+  width: 52px; height: 52px; border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.55);
+  background: var(--plum); color: #fff; cursor: pointer;
+  box-shadow: 0 6px 18px rgba(76,43,83,.35);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.35rem; line-height: 1;
+  transition: transform .2s ease, background .2s ease;
+}
+.music-toggle:hover { transform: scale(1.08); background: var(--plum-dark); }
+.music-toggle:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.music-toggle__icon { display: block; }
+
+/* Dim slightly when paused, gentle pulsing ring when playing */
+.music-toggle { opacity: .78; }
+.music-toggle.is-playing { opacity: 1; animation: musicPulse 1.8s ease-in-out infinite; }
+@keyframes musicPulse {
+  0%, 100% { box-shadow: 0 6px 18px rgba(76,43,83,.35), 0 0 0 0 rgba(203,179,214,.55); }
+  50%      { box-shadow: 0 6px 18px rgba(76,43,83,.35), 0 0 0 12px rgba(203,179,214,0); }
+}
+
+/* =========================================================================
    Footer
    ========================================================================= */
 .footer {
