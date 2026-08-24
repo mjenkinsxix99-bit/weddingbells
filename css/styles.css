@@ -305,30 +305,33 @@ h3 { font-size: clamp(1.3rem, 3vw, 1.7rem); }
 /* =========================================================================
    Story timeline (with optional photos)
    ========================================================================= */
-.timeline { max-width: 760px; margin: 3rem auto 0; position: relative; }
+.timeline {
+  max-width: 960px; margin: 3rem auto 0; position: relative;
+  display: grid; grid-template-columns: 1fr 1fr; row-gap: 2rem;
+}
 .timeline::before {
   content: ""; position: absolute; left: 50%; top: 0; bottom: 0;
   width: 1px; background: rgba(109,66,112,.35); transform: translateX(-50%);
 }
-.tl {
-  position: relative; width: 50%; padding: 1rem 2.4rem 2.8rem;
-}
-.tl:nth-child(odd) { left: 0; text-align: right; }
-.tl:nth-child(even) { left: 50%; text-align: left; }
+.tl { position: relative; max-width: 400px; padding: 0 2.4rem; }
+.tl:nth-child(odd)  { grid-column: 1; justify-self: end;   text-align: right; }
+.tl:nth-child(even) { grid-column: 2; justify-self: start; text-align: left; }
 .tl::after {
-  content: ""; position: absolute; top: 1.5rem; width: 13px; height: 13px;
+  content: ""; position: absolute; top: .3rem; width: 13px; height: 13px;
   background: var(--plum); border-radius: 50%; border: 2px solid var(--ivory);
 }
-.tl:nth-child(odd)::after { right: -6.5px; }
+.tl:nth-child(odd)::after  { right: -6.5px; }
 .tl:nth-child(even)::after { left: -6.5px; }
 .tl__year { font-family: var(--display); color: #000; font-size: 1.4rem; }
 .tl h3 { margin: .2rem 0; }
 .tl p { color: var(--muted); margin: .2rem 0 0; }
+/* Natural-shape photos (no cropping) */
 .tl__photo {
-  width: 100%; height: 240px; object-fit: cover; object-position: center 28%;
-  margin-top: 1rem;
+  display: block; width: 100%; max-width: 340px; height: auto; margin-top: .8rem;
   border: 4px solid var(--white); box-shadow: 0 4px 18px rgba(76,43,83,.12);
 }
+.tl:nth-child(odd)  .tl__photo { margin-left: auto; }
+.tl:nth-child(even) .tl__photo { margin-right: auto; }
 
 /* =========================================================================
    His Story / Her Story (dual columns)
@@ -532,11 +535,16 @@ h3 { font-size: clamp(1.3rem, 3vw, 1.7rem); }
   .nav__links li { text-align: center; padding: .9rem 0; border-top: 1px solid rgba(109,66,112,.12); }
   .nav__toggle { display: block; }
 
+  .timeline { grid-template-columns: 1fr; row-gap: 1.6rem; }
   .timeline::before { left: 18px; }
-  .tl, .tl:nth-child(even) { width: 100%; left: 0; text-align: left; padding-left: 3rem; }
-  .tl:nth-child(odd) { text-align: left; }
+  .tl,
+  .tl:nth-child(odd),
+  .tl:nth-child(even) { grid-column: 1; justify-self: start; text-align: left; max-width: none; padding: 0 0 0 3rem; }
   .tl:nth-child(odd)::after,
   .tl:nth-child(even)::after { left: 12px; right: auto; }
+  .tl__photo,
+  .tl:nth-child(odd) .tl__photo,
+  .tl:nth-child(even) .tl__photo { margin: .8rem 0 0; max-width: 420px; }
 
   .schedule__item { grid-template-columns: 90px 1fr; gap: 1rem; }
 }
