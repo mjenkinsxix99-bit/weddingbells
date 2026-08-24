@@ -67,6 +67,30 @@ function initNav() {
   );
 }
 
+/* ---- Auto-retry images that fail to load -------------------------------- */
+// On a shaky connection an image request can be dropped, and the browser
+// won't retry on its own. This retries a failed image up to 3 times with a
+// short backoff (and a cache-busting query so it re-fetches).
+function initImageRetry() {
+  document.addEventListener(
+    "error",
+    function (e) {
+      var img = e.target;
+      if (!img || img.tagName !== "IMG") return;
+      var tries = parseInt(img.getAttribute("data-retry") || "0", 10);
+      if (tries >= 3) return;
+      img.setAttribute("data-retry", tries + 1);
+      var base = img.src.split("#")[0].split("?")[0];
+      setTimeout(function () {
+        img.src = base + "?r=" + (tries + 1);
+      }, 700 * (tries + 1));
+    },
+    true // capture phase — image "error" events don't bubble
+  );
+}
+
+initImageRetry();
+
 document.addEventListener("DOMContentLoaded", () => {
   initCountdown();
   initNav();
