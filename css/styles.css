@@ -371,26 +371,28 @@ h3 { font-size: clamp(1.3rem, 3vw, 1.7rem); }
 /* =========================================================================
    Pet family ("Our Little Zoo")
    ========================================================================= */
-/* Our Little Zoo — big script name + a row of that pet's photos */
-.zoo { max-width: 900px; margin: 2.5rem auto 0; text-align: left; }
+/* Our Little Zoo — big script name + a row of that pet's photos.
+   Photos share a common HEIGHT; width follows each image's aspect ratio
+   (no cropping). Rows span the full width, like the title. */
+.zoo { margin: 2.5rem 0 0; text-align: left; }
 .zoo-pet { margin-bottom: 2rem; }
 .zoo-pet:last-child { margin-bottom: 0; }
 .zoo-pet__name {
   font-family: var(--script); color: #fff; text-transform: lowercase;
   font-size: clamp(2.6rem, 7vw, 3.8rem); line-height: 1; margin-bottom: .5rem;
 }
-.zoo-pet__row { display: flex; flex-wrap: wrap; gap: .7rem; }
+.zoo-pet__row { display: flex; flex-wrap: wrap; gap: .8rem; }
 .zoo-pet__row img {
-  width: 130px; height: 130px; object-fit: cover; border-radius: 6px;
-  border: 3px solid #fff; box-shadow: 0 4px 14px rgba(0,0,0,.20);
+  height: 220px; width: auto; flex: 0 0 auto; max-width: 100%;
+  border-radius: 6px; border: 3px solid #fff; box-shadow: 0 4px 14px rgba(0,0,0,.20);
 }
 .zoo-memoriam-title {
   font-family: var(--script); color: #fff; text-align: left;
   font-size: clamp(2rem, 5vw, 2.8rem);
-  max-width: 900px; margin: 2.8rem auto .4rem;
+  margin: 2.8rem 0 .4rem;
 }
 @media (max-width: 520px) {
-  .zoo-pet__row img { width: 104px; height: 104px; }
+  .zoo-pet__row img { height: 150px; }
 }
 
 .memoriam {
