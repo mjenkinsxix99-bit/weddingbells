@@ -325,7 +325,8 @@ h3 { font-size: clamp(1.3rem, 3vw, 1.7rem); }
 .tl h3 { margin: .2rem 0; }
 .tl p { color: var(--muted); margin: .2rem 0 0; }
 .tl__photo {
-  width: 100%; height: 190px; object-fit: cover; margin-top: 1rem;
+  width: 100%; height: 240px; object-fit: cover; object-position: center 28%;
+  margin-top: 1rem;
   border: 4px solid var(--white); box-shadow: 0 4px 18px rgba(76,43,83,.12);
 }
 
