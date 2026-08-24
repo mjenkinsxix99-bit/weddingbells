@@ -372,16 +372,27 @@ h3 { font-size: clamp(1.3rem, 3vw, 1.7rem); }
    Pet family ("Our Little Zoo")
    ========================================================================= */
 .pets {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 1.4rem; margin-top: 2.5rem;
 }
 .pet {
   background: var(--white); border: 1px solid rgba(109,66,112,.15);
-  padding: 1.6rem 1rem; text-align: center;
+  padding: 1.2rem 1rem 1.3rem; text-align: center;
 }
-.pet__emoji { font-size: 2rem; }
-.pet__name { font-family: var(--display); font-size: 1.35rem; color: var(--plum); margin-top: .3rem; }
-.pet__kind { text-transform: uppercase; letter-spacing: .14em; font-size: .66rem; color: var(--muted); }
+.pet__name { font-family: var(--display); font-size: 1.4rem; color: var(--plum); }
+.pet__kind { text-transform: uppercase; letter-spacing: .14em; font-size: .66rem; color: var(--muted); margin-top: .1rem; }
+.pet__photos {
+  display: flex; flex-wrap: wrap; gap: .4rem; justify-content: center; margin-top: .8rem;
+}
+.pet__photos img {
+  width: 72px; height: 72px; object-fit: cover; border-radius: 5px;
+  border: 2px solid var(--cream);
+}
+.zoo-memoriam-title {
+  font-family: var(--script); color: #fff; font-size: 2.1rem;
+  margin: 3rem 0 .2rem;
+}
+.pets--memory { max-width: 760px; margin-left: auto; margin-right: auto; }
 
 .memoriam {
   margin-top: 2.5rem; text-align: center;
