@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Timeline Builder — Makayla &amp; Micah (private tool)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Forum&family=MonteCarlo&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --ivory:#faf7f3; --cream:#f2ebe3; --plum:#6d4270; --plum-dark:#4c2b53;
+      --lilac:#cbb3d6; --gold:#b08d57; --ink:#000; --line:rgba(109,66,112,.25);
+    }
+    *{box-sizing:border-box;}
+    body{margin:0;background:var(--ivory);color:var(--ink);
+      font-family:"Forum",Georgia,serif;font-size:16px;line-height:1.5;}
+    h1{font-family:"MonteCarlo",cursive;color:var(--plum);font-size:2.6rem;margin:.2rem 0 0;}
+    a{color:var(--plum);}
+    .wrap{max-width:1200px;margin:0 auto;padding:1.2rem;}
+    .intro{background:var(--cream);border:1px solid var(--line);padding:1rem 1.2rem;border-radius:8px;margin:.8rem 0 1.2rem;}
+    .intro ol{margin:.4rem 0 0;padding-left:1.2rem;}
+    .toolbar{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1rem;}
+    button{font-family:inherit;font-size:.9rem;cursor:pointer;border:1px solid var(--plum);
+      background:var(--plum);color:#fff;padding:.5rem 1rem;border-radius:6px;transition:.15s;}
+    button.ghost{background:#fff;color:var(--plum);}
+    button:hover{background:var(--plum-dark);border-color:var(--plum-dark);color:#fff;}
+    button.ghost:hover{background:var(--cream);color:var(--plum-dark);}
+    button.mini{padding:.25rem .5rem;font-size:.85rem;}
+
+    .cols{display:grid;grid-template-columns:300px 1fr;gap:1.2rem;align-items:start;}
+    @media (max-width:820px){.cols{grid-template-columns:1fr;}}
+
+    /* Palette */
+    .palette{position:sticky;top:.6rem;background:#fff;border:1px solid var(--line);border-radius:10px;padding:.8rem;}
+    .palette h2{font-family:"Forum",serif;font-size:1rem;text-transform:uppercase;letter-spacing:.12em;color:var(--plum);margin:.1rem 0 .2rem;}
+    .palette .hint{font-size:.8rem;color:#555;margin:0 0 .7rem;}
+    .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;max-height:70vh;overflow:auto;}
+    .ptile{border:2px solid transparent;border-radius:8px;overflow:hidden;background:var(--cream);cursor:grab;position:relative;}
+    .ptile img{width:100%;height:90px;object-fit:cover;display:block;}
+    .ptile .fn{font-size:.7rem;padding:.2rem .3rem;word-break:break-all;text-align:center;}
+    .ptile.selected{border-color:var(--gold);box-shadow:0 0 0 2px var(--gold) inset;}
+    .ptile .used{position:absolute;top:3px;right:3px;background:var(--plum);color:#fff;font-size:.62rem;
+      padding:.05rem .35rem;border-radius:10px;}
+
+    /* Entries */
+    .entry{background:#fff;border:1px solid var(--line);border-radius:10px;padding:.8rem;margin-bottom:.9rem;}
+    .entry.drop-hi{outline:2px dashed var(--gold);}
+    .ehead{display:flex;align-items:center;gap:.5rem;margin-bottom:.6rem;}
+    .num{width:26px;height:26px;border-radius:50%;background:var(--plum);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.85rem;flex:0 0 auto;}
+    .ehead input.era{flex:1;font-family:"MonteCarlo",cursive;color:var(--plum);font-size:1.3rem;border:none;border-bottom:1px solid var(--line);background:transparent;padding:.1rem .2rem;}
+    .ebody{display:grid;grid-template-columns:150px 1fr;gap:.8rem;}
+    @media (max-width:520px){.ebody{grid-template-columns:1fr;}}
+    .slot{border:2px dashed var(--line);border-radius:8px;min-height:150px;display:flex;align-items:center;justify-content:center;text-align:center;color:#888;font-size:.8rem;position:relative;background:var(--cream);overflow:hidden;}
+    .slot.has{border-style:solid;color:transparent;}
+    .slot img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;}
+    .slot .clear{position:absolute;top:4px;right:4px;z-index:2;background:rgba(0,0,0,.6);color:#fff;border:none;border-radius:50%;width:22px;height:22px;padding:0;font-size:.9rem;line-height:1;}
+    .slot.drop-hi{border-color:var(--gold);background:#fbf3e4;}
+    .fields label{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--plum);margin:.1rem 0 .1rem;}
+    .fields input,.fields textarea{width:100%;font-family:inherit;font-size:.9rem;border:1px solid var(--line);border-radius:6px;padding:.4rem;margin-bottom:.4rem;background:#fff;color:#000;}
+    .fields textarea{min-height:64px;resize:vertical;}
+    .erow-btns{display:flex;gap:.3rem;flex:0 0 auto;}
+
+    dialog{border:1px solid var(--line);border-radius:10px;max-width:640px;width:92%;padding:1rem;}
+    dialog h3{margin:.1rem 0 .5rem;color:var(--plum);font-family:"Forum",serif;}
+    textarea#out{width:100%;min-height:260px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.8rem;}
+    .savenote{font-size:.8rem;color:#555;margin-left:.4rem;}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p style="text-transform:uppercase;letter-spacing:.2em;color:var(--gold);font-size:.75rem;margin:0;">Private tool — not part of the live site</p>
+    <h1>Timeline Builder</h1>
+
+    <div class="intro">
+      <strong>How to use:</strong>
+      <ol>
+        <li><strong>Assign a photo:</strong> click a photo in the palette to select it, then click an entry's photo box — or just drag the photo onto the box.</li>
+        <li><strong>Reorder</strong> entries with the ↑ / ↓ buttons. <strong>Add</strong> or <strong>remove</strong> entries as you like. Edit the era, title, and caption text right in place.</li>
+        <li>Your work <strong>auto-saves</strong> in this browser. When you're happy, click <strong>Export</strong> and send me the result — I'll build it into the real page and line everything up.</li>
+      </ol>
+    </div>
+
+    <div class="toolbar">
+      <button id="btnExport">Export &amp; Copy</button>
+      <button class="ghost" id="btnAdd">+ Add Entry</button>
+      <button class="ghost" id="btnReset">Reset to Default</button>
+      <span class="savenote" id="saveNote"></span>
+    </div>
+
+    <div class="cols">
+      <div class="palette">
+        <h2>Photos</h2>
+        <p class="hint">Click to select, then click a box — or drag onto a box. Reuse is fine.</p>
+        <div class="pgrid" id="pgrid"></div>
+      </div>
+      <div id="entries"></div>
+    </div>
+  </div>
+
+  <dialog id="dlg">
+    <h3>Your timeline arrangement</h3>
+    <p style="font-size:.85rem;margin:.2rem 0 .5rem;">Copied to your clipboard. Paste it into the chat and I'll build it. (Also saved as a file if your browser allowed the download.)</p>
+    <textarea id="out" readonly></textarea>
+    <div style="margin-top:.6rem;display:flex;gap:.5rem;">
+      <button id="btnCopy2">Copy again</button>
+      <button class="ghost" id="btnClose">Close</button>
+    </div>
+  </dialog>
+
+  <script>
+  (function(){
+    var IMAGES = [
+      "after_school.webp","bday_26.webp","colorado_37.webp","couple.webp",
+      "couple_1stapt.webp","couple_margs.webp","engagement_01.webp","engagement_02.webp",
+      "graduation_01.webp","hangout.webp","prom_01.webp","prom_03.webp",
+      "venue_01.webp","venue_03.webp"
+    ];
+    var DIR = "assets/timeline/";
+    var KEY = "wb-timeline-builder-v1";
+
+    var DEFAULT = [
+      {era:"7th Grade", title:"Where it started", desc:"We first met in 7th grade, sharing a few laughs across the cafeteria at lunch.", img:""},
+      {era:"Senior Year", title:"December — everything changed", desc:"Life had taken us in different directions, but in December of our senior year we started talking again.", img:""},
+      {era:"Prom", title:"The big ask (times two)", desc:"He asked me to prom — and the very next day, he asked me to be his girlfriend.", img:""},
+      {era:"After Graduation", title:"Building a life together", desc:"Not long after graduation, we moved in together and began building our life side by side.", img:""},
+      {era:"Home", title:"Love, laughter & a growing zoo", desc:"We created a home filled with love, laughter, and more pets than most people expect.", img:""},
+      {era:"The Proposal", title:"Balancing Rock, Garden of the Gods", desc:"He set up a camera for a picture of us, hurried back over, and got down on one knee.", img:""},
+      {era:"A New Name", title:"One family, one name", desc:"We're both taking a new shared last name — one that reflects the family we've built together.", img:""},
+      {era:"Nov 2026", title:"The next chapter", desc:"And now, a wedding. We can't wait to celebrate with all the people we love.", img:""}
+    ];
+
+    var entries = load();
+    var selected = null; // selected palette filename
+
+    function load(){
+      try{ var s = JSON.parse(localStorage.getItem(KEY)); if(Array.isArray(s) && s.length) return s; }catch(e){}
+      return JSON.parse(JSON.stringify(DEFAULT));
+    }
+    function save(){
+      try{ localStorage.setItem(KEY, JSON.stringify(entries)); }catch(e){}
+      var n = document.getElementById("saveNote"); n.textContent = "saved ✓";
+      clearTimeout(save._t); save._t = setTimeout(function(){ n.textContent=""; }, 1200);
+    }
+    function usageMap(){
+      var m = {};
+      entries.forEach(function(e,i){ if(e.img){ (m[e.img]=m[e.img]||[]).push(i+1); } });
+      return m;
+    }
+
+    /* ---------- Palette ---------- */
+    function renderPalette(){
+      var grid = document.getElementById("pgrid");
+      var used = usageMap();
+      grid.innerHTML = "";
+      IMAGES.forEach(function(fn){
+        var t = document.createElement("div");
+        t.className = "ptile" + (selected===fn ? " selected":"");
+        t.draggable = true;
+        t.innerHTML = '<img src="'+DIR+fn+'" alt=""><div class="fn">'+fn+'</div>' +
+          (used[fn] ? '<span class="used">#'+used[fn].join(", #")+'</span>' : '');
+        t.addEventListener("click", function(){ selected = (selected===fn? null: fn); renderPalette(); });
+        t.addEventListener("dragstart", function(ev){ ev.dataTransfer.setData("text/plain", fn); });
+        grid.appendChild(t);
+      });
+    }
+
+    /* ---------- Entries ---------- */
+    function renderEntries(){
+      var box = document.getElementById("entries");
+      box.innerHTML = "";
+      entries.forEach(function(e, i){
+        var card = document.createElement("div");
+        card.className = "entry";
+
+        var head = document.createElement("div");
+        head.className = "ehead";
+        head.innerHTML = '<span class="num">'+(i+1)+'</span>';
+        var era = document.createElement("input");
+        era.className = "era"; era.value = e.era || ""; era.placeholder = "Era (e.g. Prom)";
+        era.addEventListener("input", function(){ e.era = era.value; save(); });
+        head.appendChild(era);
+        var btns = document.createElement("div");
+        btns.className = "erow-btns";
+        btns.appendChild(mkBtn("↑","mini ghost",function(){ move(i,-1); }));
+        btns.appendChild(mkBtn("↓","mini ghost",function(){ move(i, 1); }));
+        btns.appendChild(mkBtn("🗑","mini ghost",function(){ if(confirm("Remove this entry?")){ entries.splice(i,1); save(); renderAll(); } }));
+        head.appendChild(btns);
+        card.appendChild(head);
+
+        var body = document.createElement("div");
+        body.className = "ebody";
+
+        // slot
+        var slot = document.createElement("div");
+        slot.className = "slot" + (e.img ? " has":"");
+        if(e.img){
+          slot.innerHTML = '<img src="'+DIR+e.img+'" alt="">';
+          var x = mkBtn("×","clear",function(ev){ ev.stopPropagation(); e.img=""; save(); renderAll(); });
+          x.className = "clear"; slot.appendChild(x);
+        } else {
+          slot.textContent = "Click or drag a photo here";
+        }
+        slot.addEventListener("click", function(){ if(selected){ e.img = selected; selected=null; save(); renderAll(); } });
+        slot.addEventListener("dragover", function(ev){ ev.preventDefault(); slot.classList.add("drop-hi"); });
+        slot.addEventListener("dragleave", function(){ slot.classList.remove("drop-hi"); });
+        slot.addEventListener("drop", function(ev){ ev.preventDefault(); var fn = ev.dataTransfer.getData("text/plain"); if(fn){ e.img = fn; save(); renderAll(); } });
+        body.appendChild(slot);
+
+        // fields
+        var f = document.createElement("div");
+        f.className = "fields";
+        var tl = document.createElement("label"); tl.textContent="Title";
+        var ti = document.createElement("input"); ti.value = e.title||""; ti.placeholder="Title";
+        ti.addEventListener("input", function(){ e.title = ti.value; save(); });
+        var dl = document.createElement("label"); dl.textContent="Caption / description";
+        var ta = document.createElement("textarea"); ta.value = e.desc||""; ta.placeholder="A sentence about this moment…";
+        ta.addEventListener("input", function(){ e.desc = ta.value; save(); });
+        f.appendChild(tl); f.appendChild(ti); f.appendChild(dl); f.appendChild(ta);
+        body.appendChild(f);
+
+        card.appendChild(body);
+        box.appendChild(card);
+      });
+    }
+
+    function mkBtn(txt, cls, fn){
+      var b = document.createElement("button"); b.textContent = txt; if(cls) b.className = cls;
+      b.addEventListener("click", fn); return b;
+    }
+    function move(i, dir){
+      var j = i + dir; if(j<0 || j>=entries.length) return;
+      var tmp = entries[i]; entries[i] = entries[j]; entries[j] = tmp; save(); renderAll();
+    }
+    function renderAll(){ renderPalette(); renderEntries(); }
+
+    /* ---------- Toolbar ---------- */
+    document.getElementById("btnAdd").addEventListener("click", function(){
+      entries.push({era:"New Entry", title:"", desc:"", img:""}); save(); renderAll();
+      window.scrollTo(0, document.body.scrollHeight);
+    });
+    document.getElementById("btnReset").addEventListener("click", function(){
+      if(confirm("Reset to the default 8 entries? This clears your current arrangement.")){
+        entries = JSON.parse(JSON.stringify(DEFAULT)); save(); renderAll();
+      }
+    });
+
+    function exportText(){
+      var lines = entries.map(function(e,i){
+        return (i+1)+". ["+(e.img||"no photo")+"]  "+(e.era||"")+" — "+(e.title||"")+"\n     "+(e.desc||"");
+      }).join("\n");
+      var json = JSON.stringify(entries, null, 2);
+      return "TIMELINE ARRANGEMENT\n====================\n"+lines+"\n\n--- JSON ---\n"+json;
+    }
+    function copy(text){
+      if(navigator.clipboard && navigator.clipboard.writeText){ return navigator.clipboard.writeText(text); }
+      var t=document.getElementById("out"); t.select(); try{document.execCommand("copy");}catch(e){}
+      return Promise.resolve();
+    }
+    document.getElementById("btnExport").addEventListener("click", function(){
+      var text = exportText();
+      document.getElementById("out").value = text;
+      copy(text);
+      // best-effort download
+      try{
+        var blob = new Blob([text], {type:"text/plain"});
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement("a"); a.href=url; a.download="timeline-arrangement.txt";
+        document.body.appendChild(a); a.click(); a.remove(); setTimeout(function(){URL.revokeObjectURL(url);}, 2000);
+      }catch(e){}
+      document.getElementById("dlg").showModal();
+    });
+    document.getElementById("btnCopy2").addEventListener("click", function(){ copy(document.getElementById("out").value); });
+    document.getElementById("btnClose").addEventListener("click", function(){ document.getElementById("dlg").close(); });
+
+    renderAll();
+  })();
+  </script>
+</body>
+</html>
