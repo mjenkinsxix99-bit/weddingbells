@@ -475,6 +475,23 @@ h3 { font-size: clamp(1.3rem, 3vw, 1.7rem); }
 }
 .gallery figure:hover figcaption { opacity: 1; }
 
+/* Favorites album — scrapbook flow. Photos share a common height, keep their
+   natural width (no cropping); each captioned by its title. */
+.album {
+  display: flex; flex-wrap: wrap; justify-content: center;
+  gap: 1.8rem 1.4rem; margin-top: 2.5rem;
+}
+.album__item { margin: 0; }
+.album__item img {
+  height: 240px; width: auto; max-width: 100%; display: block;
+  border: 5px solid var(--white); box-shadow: 0 6px 18px rgba(76,43,83,.15);
+}
+.album__item figcaption {
+  margin-top: .5rem; font-family: var(--display); color: var(--plum);
+  font-size: 1rem; text-align: center;
+}
+@media (max-width: 520px) { .album__item img { height: 180px; } }
+
 /* =========================================================================
    Travel / info blocks
    ========================================================================= */
