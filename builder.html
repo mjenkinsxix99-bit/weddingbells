@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Timeline Builder — Makayla &amp; Micah (private tool)</title>
+  <title>Timeline Builder · Makayla &amp; Micah (private tool)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Forum&family=MonteCarlo&display=swap" rel="stylesheet" />
@@ -69,15 +69,15 @@
 </head>
 <body>
   <div class="wrap">
-    <p style="text-transform:uppercase;letter-spacing:.2em;color:var(--gold);font-size:.75rem;margin:0;">Private tool — not part of the live site</p>
+    <p style="text-transform:uppercase;letter-spacing:.2em;color:var(--gold);font-size:.75rem;margin:0;">Private tool, not part of the live site</p>
     <h1>Timeline Builder</h1>
 
     <div class="intro">
       <strong>How to use:</strong>
       <ol>
-        <li><strong>Assign a photo:</strong> click a photo in the palette to select it, then click an entry's photo box — or just drag the photo onto the box.</li>
+        <li><strong>Assign a photo:</strong> click a photo in the palette to select it, then click an entry's photo box, or just drag the photo onto the box.</li>
         <li><strong>Reorder</strong> entries with the ↑ / ↓ buttons. <strong>Add</strong> or <strong>remove</strong> entries as you like. Edit the era, title, and caption text right in place.</li>
-        <li>Your work <strong>auto-saves</strong> in this browser. When you're happy, click <strong>Export</strong> and send me the result — I'll build it into the real page and line everything up.</li>
+        <li>Your work <strong>auto-saves</strong> in this browser. When you're happy, click <strong>Export</strong> and send me the result, I'll build it into the real page and line everything up.</li>
       </ol>
     </div>
 
@@ -91,7 +91,7 @@
     <div class="cols">
       <div class="palette">
         <h2>Photos</h2>
-        <p class="hint">Click to select, then click a box — or drag onto a box. Reuse is fine.</p>
+        <p class="hint">Click to select, then click a box, or drag onto a box. Reuse is fine.</p>
         <div class="pgrid" id="pgrid"></div>
       </div>
       <div id="entries"></div>
@@ -121,12 +121,12 @@
 
     var DEFAULT = [
       {era:"7th Grade", title:"Where it started", desc:"We first met in 7th grade, sharing a few laughs across the cafeteria at lunch.", img:""},
-      {era:"Senior Year", title:"December — everything changed", desc:"Life had taken us in different directions, but in December of our senior year we started talking again.", img:""},
-      {era:"Prom", title:"The big ask (times two)", desc:"He asked me to prom — and the very next day, he asked me to be his girlfriend.", img:""},
+      {era:"Senior Year", title:"December, everything changed", desc:"Life had taken us in different directions, but in December of our senior year we started talking again.", img:""},
+      {era:"Prom", title:"The big ask (times two)", desc:"He asked me to prom, and the very next day, he asked me to be his girlfriend.", img:""},
       {era:"After Graduation", title:"Building a life together", desc:"Not long after graduation, we moved in together and began building our life side by side.", img:""},
       {era:"Home", title:"Love, laughter & a growing zoo", desc:"We created a home filled with love, laughter, and more pets than most people expect.", img:""},
       {era:"The Proposal", title:"Balancing Rock, Garden of the Gods", desc:"He set up a camera for a picture of us, hurried back over, and got down on one knee.", img:""},
-      {era:"A New Name", title:"One family, one name", desc:"We're both taking a new shared last name — one that reflects the family we've built together.", img:""},
+      {era:"A New Name", title:"One family, one name", desc:"We're both taking a new shared last name, one that reflects the family we've built together.", img:""},
       {era:"Nov 2026", title:"The next chapter", desc:"And now, a wedding. We can't wait to celebrate with all the people we love.", img:""}
     ];
 
@@ -247,7 +247,7 @@
 
     function exportText(){
       var lines = entries.map(function(e,i){
-        return (i+1)+". ["+(e.img||"no photo")+"]  "+(e.era||"")+" — "+(e.title||"")+"\n     "+(e.desc||"");
+        return (i+1)+". ["+(e.img||"no photo")+"]  "+(e.era||"")+", "+(e.title||"")+"\n     "+(e.desc||"");
       }).join("\n");
       var json = JSON.stringify(entries, null, 2);
       return "TIMELINE ARRANGEMENT\n====================\n"+lines+"\n\n--- JSON ---\n"+json;

@@ -242,6 +242,13 @@ h3 { font-size: clamp(1.3rem, 3vw, 1.7rem); }
   margin: .2rem 0;
 }
 .hero__amp { color: var(--gold); }
+.hero__soon {
+  font-family: var(--display); font-style: italic;
+  font-size: clamp(1.1rem, 2.8vw, 1.5rem);
+  color: var(--plum); margin: .2rem 0;
+}
+.hero__soon a { color: var(--plum); text-decoration: underline; text-underline-offset: 3px; }
+.hero__soon a:hover { color: var(--gold); }
 .hero__tag {
   text-transform: uppercase; letter-spacing: .22em;
   font-size: 1rem; color: #000;
