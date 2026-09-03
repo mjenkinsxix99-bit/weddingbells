@@ -91,7 +91,38 @@ function initImageRetry() {
 
 initImageRetry();
 
+/* ---- Accurate #anchor scrolling despite lazy-loaded images -------------- */
+// Lazy images above the target collapse to 0 height until loaded, so a hash
+// jump lands short. This force-loads images before the target, then scrolls.
+function initHashScroll() {
+  if (!location.hash) return;
+  var target;
+  try { target = document.getElementById(decodeURIComponent(location.hash.slice(1))); }
+  catch (e) { return; }
+  if (!target) return;
+
+  var pending = [];
+  Array.prototype.forEach.call(document.images, function (img) {
+    // DOCUMENT_POSITION_PRECEDING (2) => img appears before the target
+    if (target.compareDocumentPosition(img) & 2) {
+      if (img.loading === "lazy") img.loading = "eager";
+      if (!img.complete) {
+        pending.push(new Promise(function (res) {
+          img.addEventListener("load", res, { once: true });
+          img.addEventListener("error", res, { once: true });
+        }));
+      }
+    }
+  });
+
+  function go() { target.scrollIntoView({ block: "start" }); }
+  go();
+  if (pending.length) Promise.all(pending).then(function () { setTimeout(go, 50); });
+  window.addEventListener("load", function () { setTimeout(go, 80); });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   initCountdown();
   initNav();
+  initHashScroll();
 });
